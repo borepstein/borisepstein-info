@@ -6,16 +6,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" >
-		</img>
-		
-		<p>Links
-		</p>
+		<div class="row">
+			<div class="column">
+        		<img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" >
+				</img>
+			</div>
+			<div class="column">
+				<p>Links
+				</p>
 
-		<a href="https://peakd.com/@borepstein/posts">Blog</a>
-		<a href="https://gab.com/borepstein">Gab</a>
-		<a href="mailto:brosi.epstein@protonmail.com">E-Mail</a>
-		
+				<ul>
+				<li><a href="https://peakd.com/@borepstein/posts">Blog</a></li>
+				<li><a href="https://gab.com/borepstein">Gab</a></li>
+				<li><a href="mailto:brosi.epstein@protonmail.com">E-Mail</a></li>
+				</ul>
+			</div>
+		</div>
       </header>
     </div>
   );
