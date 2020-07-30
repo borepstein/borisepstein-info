@@ -18,7 +18,7 @@ function App() {
 				<ul>
 				<li><a href="https://peakd.com/@borepstein/posts">Blog</a></li>
 				<li><a href="https://gab.com/borepstein">Gab</a></li>
-				<li><a href="mailto:brosi.epstein@protonmail.com">E-Mail</a></li>
+				<li><a href="mailto:borisepstein@protonmail.com">E-Mail</a></li>
 				</ul>
 			</div>
 		</div>
