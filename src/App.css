@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.Left-Alligned-Block {
+	text-align: left;
+}
+
 .App-header {
   background-color: grey;
   min-height: 100vh;
@@ -19,9 +23,20 @@
 
 .row {
 	display: flex;
+	column-count: 3;
 }
 
-.column {
+.column1 {
 	float: left;
+	width: 25%;
+}
+
+.column2 {
+	float: center;
 	width: 50%;
+}
+
+.column3 {
+	float: right;
+	width: 25%;
 }
