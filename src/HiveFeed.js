@@ -52,7 +52,7 @@ class HiveFeed extends React.Component {
 			
 			list_arr.push(						
 				<p>
-					<a href={full_url}>{this.state.data.result[entry].title}</a>
+					<a href={full_url} target="_blank">{this.state.data.result[entry].title}</a>
 				</p>
 			);						
 		}
