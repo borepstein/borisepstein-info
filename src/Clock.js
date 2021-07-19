@@ -3,8 +3,10 @@ import React from 'react';
 class Clock extends React.Component {
   constructor(props) {
     super(props);
+    var d = new Date();
+
     this.state = {
-      time: new Date().toLocaleString()
+      time: d.toUTCString()
     };
   }
 
@@ -20,8 +22,10 @@ class Clock extends React.Component {
   }
 
   tick() {
+    var d = new Date();
+
     this.setState({
-      time: new Date().toLocaleString()
+      time: d.toUTCString()
     });
   }
 
