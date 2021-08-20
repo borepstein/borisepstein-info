@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+
+  web0:
+    build:
+      context: .
+      target: web
+    container_name: "web0"
+
+  wproxy0:
+    build:
+      context: .
+      target: wproxy
+    image: "wproxy"
+    container_name: "wproxy0"
+    volumes:
+      - letsencrypt_data:/etc/letsencrypt
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - web0
+
+  letsencrypt0:
+    build:
+      context: .
+      target: letsencrypt
+    volumes:
+      - letsencrypt_data:/etc/letsencrypt
+
+volumes:
+  letsencrypt_data:
+    driver: local

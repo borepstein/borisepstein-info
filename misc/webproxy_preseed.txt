@@ -1,0 +1,2 @@
+tzdata tzdata/Areas select North America
+tzdata tzdata/Zones/Europe select New York

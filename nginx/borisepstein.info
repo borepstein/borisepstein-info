@@ -1,0 +1,10 @@
+server {
+	listen 443 ssl;
+	server_name borisepstein.info;
+	ssl_certificate /etc/letsencrypt/csr/0000_csr-certbot.pem;
+	ssl_certificate_key /etc/letsencrypt/keys/0000_key-certbot.pem;
+
+	location / {
+		proxy_pass http://web0:80;
+	}
+}
