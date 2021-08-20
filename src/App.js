@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import Clock from './Clock';
 import './App.css';
 import HiveFeed from './HiveFeed';
@@ -13,7 +12,8 @@ function App() {
 		</div>
 		<div class="row">
 			<div class="column1">
-        		<img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" >
+        		<img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" 
+                         alt="Boris">
 				</img>
 				<p><i>Boris</i></p>
 				<p><i>Boston area, 2011</i></p>
