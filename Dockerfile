@@ -12,8 +12,8 @@ RUN apt-get install debconf-utils -y
 RUN apt-get install nginx -y
 RUN apt-get install certbot -y
 COPY nginx/borisepstein.info /etc/nginx/sites-enabled/
-COPY letsencrypt /etc/letsencrypt/
-CMD nginx -g 'daemon off;'
+COPY letsencrypt/ /etc/letsencrypt/
+CMD nginx -g 'daemon off;'; sleep 3600
 
 FROM centos AS web
 WORKDIR /app/
@@ -40,7 +40,8 @@ RUN apt-get install tzdata -y
 RUN apt-get install debconf-utils -y
 RUN apt-get install nginx -y
 RUN apt-get install certbot -y
-COPY nginx/borisepstein.info /etc/nginx/sites-enabled/
-COPY letsencrypt /etc/letsencrypt/
-CMD certbot certonly --non-interactive -w /usr/share/nginx/html/ \
-    --agree-tos -m 'borepstein@gmail.com' -d borisepstein.info
+RUN nginx -g 'daemon on;'
+# COPY letsencrypt /etc/letsencrypt/
+CMD sleep 3600
+# CMD certbot certonly --non-interactive -w /usr/share/nginx/html/ \
+#    --agree-tos -m 'borepstein@gmail.com' -d borisepstein.info
