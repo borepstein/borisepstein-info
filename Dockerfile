@@ -12,6 +12,7 @@ RUN apt-get install debconf-utils -y
 RUN apt-get install nginx -y
 RUN apt-get install certbot -y
 COPY nginx/borisepstein.info /etc/nginx/sites-enabled/
+COPY nginx/default /etc/nginx/sites-enabled/
 ADD letsencrypt.tar /etc/letsencrypt/
 CMD nginx -g 'daemon off;'; sleep 3600
 
@@ -30,18 +31,16 @@ RUN npm install serve
 RUN npm run build
 CMD serve -s build
 
-# FROM ubuntu AS letsencrypt
-# ENV DEBIAN_FRONTEND noninteractive
-# ENV DEBCONF_NONINTERACTIVE_SEEN true
-# RUN apt-get update -y
-# RUN apt-get update -y
-# RUN apt-get install apt-utils -y
-# RUN apt-get install tzdata -y
-# RUN apt-get install debconf-utils -y
-# RUN apt-get install nginx -y
-# RUN apt-get install certbot -y
-# RUN nginx -g 'daemon on;'
-# COPY letsencrypt /etc/letsencrypt/
-# CMD sleep 3600
-# CMD certbot certonly --non-interactive -w /usr/share/nginx/html/ \
-#    --agree-tos -m 'borepstein@gmail.com' -d borisepstein.info
+FROM ubuntu AS letsencrypt
+ENV DEBIAN_FRONTEND noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN true
+RUN apt-get update -y
+RUN apt-get update -y
+RUN apt-get install apt-utils -y
+RUN apt-get install tzdata -y
+RUN apt-get install debconf-utils -y
+RUN apt-get install nginx -y
+RUN apt-get install certbot -y
+COPY nginx/letsencrypt_start /usr/local/bin/
+RUN chmod 755 /usr/local/bin/letsencrypt_start
+CMD letsencrypt_start 3600

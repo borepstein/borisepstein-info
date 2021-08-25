@@ -1,0 +1,19 @@
+#/bin/bash
+
+#Initialize parameters
+TIME_TO_SLEEP_IN_SECS=$1
+
+#Start nginx
+nginx
+
+while true
+do 
+	certbot certonly --non-interactive \
+		--webroot --webroot-path /var/www/html \
+		--agree-tos -m 'borepstein@gmail.com' \
+		-d borisepstein.info
+
+	sleep $TIME_TO_SLEEP_IN_SECS
+done
+
+
