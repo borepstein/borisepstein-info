@@ -28,11 +28,11 @@ function App() {
 					</p>
 
 					<ul>
-					<li><a href="https://peakd.com/@borepstein/posts">Blog</a></li>
-					<li><a href="https://gab.com/borepstein">Gab</a></li>
-					<li><a href="https://parler.com/profile/Borepstein/posts">Parler</a></li>
-					<li><a href="https://www.facebook.com/borepstein">Facebook</a></li>
-					<li><a href="https://www.linkedin.com/in/borepstein/">LinkedIn</a></li>
+					<li><a href="https://peakd.com/@borepstein/posts" target="_blank" rel="noopener noreferrer">Blog</a></li>
+					<li><a href="https://gab.com/borepstein" target="_blank" rel="noopener noreferrer">Gab</a></li>
+					<li><a href="https://parler.com/profile/Borepstein/posts" target="_blank" rel="noopener noreferrer">Parler</a></li>
+					<li><a href="https://www.facebook.com/borepstein" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+					<li><a href="https://www.linkedin.com/in/borepstein/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
 					</ul>
 					
 					<p>Contact</p>
