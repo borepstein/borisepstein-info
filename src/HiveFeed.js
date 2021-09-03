@@ -10,7 +10,7 @@ class HiveFeed extends React.Component {
 	/* constructor: start */
 	constructor() {
 	    super();
-    	this.state = { data: [] };
+            this.state = { data: [] };
   	}
 	/* constructor: end*/
 
