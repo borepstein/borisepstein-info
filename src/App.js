@@ -6,11 +6,12 @@ import HiveFeed from './HiveFeed';
 function App() {
   return (
     <div class="App">
-      <header class="App-header">
-		<div class="timer-row">
-			Zulu time: <Clock />
-		</div>
-		<div class="row">
+	<div class="App-header">
+            Zulu time: <Clock />
+	</div>
+
+      
+        <div class="row">
 			<div class="column1">
         		<img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" 
                          alt="Boris">
@@ -19,7 +20,7 @@ function App() {
 				<p><i>Boston area, 2011</i></p>
 			</div>
 			<div class="column2">
-				<p>Worthy of a look</p>
+				<p>Recent blog entries</p>
 				<HiveFeed />
 			</div>
 			<div class="column3">
@@ -28,11 +29,11 @@ function App() {
 					</p>
 
 					<ul>
-					<li><a href="https://peakd.com/@borepstein/posts">Blog</a></li>
-					<li><a href="https://gab.com/borepstein">Gab</a></li>
-					<li><a href="https://parler.com/profile/Borepstein/posts">Parler</a></li>
-					<li><a href="https://www.facebook.com/borepstein">Facebook</a></li>
-					<li><a href="https://www.linkedin.com/in/borepstein/">LinkedIn</a></li>
+					<li><a href="https://peakd.com/@borepstein/posts" target="_blank">Blog</a></li>
+					<li><a href="https://gab.com/borepstein" target="_blank">Gab</a></li>
+					<li><a href="https://gettr.com/user/borepstein" target="_blank">Gettr</a></li>
+					<li><a href="https://www.facebook.com/borepstein" target="_blank">Facebook</a></li>
+					<li><a href="https://www.linkedin.com/in/borepstein/" target="_blank">LinkedIn</a></li>
 					</ul>
 					
 					<p>Contact</p>
@@ -42,8 +43,8 @@ function App() {
 					</ul>
 				</div>
 			</div>
-		</div>
-      </header>
+        </div>
+      
     </div>
   );
 }
