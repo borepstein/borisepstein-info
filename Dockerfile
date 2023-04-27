@@ -1,4 +1,4 @@
-FROM ubuntu AS wproxy
+FROM ubuntu:22.04 AS wproxy
 WORKDIR /app/webproxy/
 #EXPOSE 80
 #EXPOSE 443
@@ -16,7 +16,7 @@ COPY nginx/default /etc/nginx/sites-enabled/
 ADD letsencrypt.tar /etc/letsencrypt/
 CMD nginx -g 'daemon off;'; sleep 3600
 
-FROM centos AS web
+FROM centos:centos7 AS web
 WORKDIR /app/
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
@@ -25,13 +25,15 @@ ENV PORT 80
 COPY ["package.json", "/app/"]
 COPY ["public", "/app/public/"]
 COPY ["src", "/app/src/"]
-RUN yum install npm -y
+RUN yum install curl -y
+RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash -
+RUN yum install nodejs -y
 RUN npm install
 RUN npm install serve
 RUN npm run build
 CMD serve -s build
 
-FROM ubuntu AS letsencrypt
+FROM ubuntu:22.04 AS letsencrypt
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
 RUN apt-get update -y
