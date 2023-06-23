@@ -13,7 +13,6 @@ RUN apt-get install nginx -y
 RUN apt-get install certbot -y
 COPY nginx/borisepstein.info /etc/nginx/sites-enabled/
 COPY nginx/default /etc/nginx/sites-enabled/
-ADD letsencrypt.tar /etc/letsencrypt/
 CMD nginx -g 'daemon off;'; sleep 3600
 
 FROM centos:centos7 AS web
