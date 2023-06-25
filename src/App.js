@@ -4,6 +4,8 @@ import './App.css';
 import HiveFeed from './HiveFeed';
 
 function PersonalIntro() {
+/* Personal info scetion 
+*/
     return(
         <div>
             <img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" 
