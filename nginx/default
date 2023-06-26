@@ -46,7 +46,7 @@ server {
 	server_name _;
 
 	location /.well-known/acme-challenge {
-		proxy_pass http://letsencrypt0;
+		proxy_pass http://letsencrypt;
 	}
 
 	location / {
