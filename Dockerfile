@@ -25,8 +25,6 @@ RUN apt-get install tzdata -y
 RUN apt-get install debconf-utils -y
 RUN apt-get install certbot -y
 COPY nginx/letsencrypt_start /usr/local/bin/
-COPY nginx/borisepstein.info /etc/nginx/conf.d
-RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-enabled/borisepstein.info
 RUN chmod 755 /usr/local/bin/letsencrypt_start
 CMD letsencrypt_start 3600
 
@@ -42,4 +40,6 @@ RUN apt-get install nginx -y
 RUN apt-get install certbot -y
 RUN service nginx start
 COPY nginx/borisepstein.info /etc/nginx/conf.d
+RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-available/borisepstein.info
+RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-enabled/borisepstein.info
 CMD nginx -g 'daemon off;'

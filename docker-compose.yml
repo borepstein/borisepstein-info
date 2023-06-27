@@ -5,13 +5,13 @@ services:
   web:
     build:
       context: .
-    image: "web"
+      target: "web"
     container_name: "web0"
 
   letsencrypt:
     build:
       context: .
-    image: "letsencrypt"
+      target: "letsencrypt"
     container_name: "letsencrypt0"
     volumes:
       - letsencrypt_data:/etc/letsencrypt
@@ -19,7 +19,7 @@ services:
   wproxy:
     build:
       context: .
-    image: "wproxy"
+      target: "wproxy"
     container_name: "wproxy0"
     ports:
       - "80:80"
