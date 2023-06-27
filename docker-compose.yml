@@ -15,6 +15,7 @@ services:
     container_name: "letsencrypt0"
     volumes:
       - letsencrypt_data:/etc/letsencrypt
+      - html_home:/var/www/html
 
   wproxy:
     build:
@@ -26,9 +27,11 @@ services:
       - "443:443"
     volumes:
       - letsencrypt_data:/etc/letsencrypt
+      - html_home:/var/www/html
     links:
       - web
       - letsencrypt 
 
 volumes:
   letsencrypt_data:
+  html_home:
