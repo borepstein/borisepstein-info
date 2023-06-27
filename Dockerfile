@@ -23,11 +23,23 @@ RUN apt-get update -y
 RUN apt-get install apt-utils -y
 RUN apt-get install tzdata -y
 RUN apt-get install debconf-utils -y
-RUN apt-get install nginx -y
 RUN apt-get install certbot -y
-RUN service nginx start
 COPY nginx/letsencrypt_start /usr/local/bin/
 COPY nginx/borisepstein.info /etc/nginx/conf.d
 RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-enabled/borisepstein.info
 RUN chmod 755 /usr/local/bin/letsencrypt_start
 CMD letsencrypt_start 3600
+
+FROM ubuntu:22.04 AS wproxy
+ENV DEBIAN_FRONTEND noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN true
+RUN apt-get update -y
+RUN apt-get update -y
+RUN apt-get install apt-utils -y
+RUN apt-get install tzdata -y
+RUN apt-get install debconf-utils -y
+RUN apt-get install nginx -y
+RUN apt-get install certbot -y
+RUN service nginx start
+COPY nginx/borisepstein.info /etc/nginx/conf.d
+CMD nginx -g 'daemon off;'

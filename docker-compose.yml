@@ -13,6 +13,22 @@ services:
       context: .
     image: "letsencrypt"
     container_name: "letsencrypt0"
+    volumes:
+      - letsencrypt_data:/etc/letsencrypt
+
+  wproxy:
+    build:
+      context: .
+    image: "wproxy"
+    container_name: "wproxy0"
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - letsencrypt_data:/etc/letsencrypt
+    links:
+      - web
+      - letsencrypt 
+
+volumes:
+  letsencrypt_data:
