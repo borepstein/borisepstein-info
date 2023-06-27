@@ -5,33 +5,14 @@ services:
   web:
     build:
       context: .
+    image: "web"
     container_name: "web0"
-
-  wproxy:
-    build:
-      context: .
-    image: "wproxy"
-    container_name: "wproxy0"
-#    volumes:
-#      - letsencrypt_data:/etc/letsencrypt
-    ports:
-      - "80:80"
-      - "443:443"
-    links:
-      - web
-      - letsencrypt
-
 
   letsencrypt:
     build:
       context: .
-
-#    volumes:
-#      - letsencrypt_data_alt:/etc/letsencrypt
-#      - letsencrypt_data:/opt/letsencrypt_new
-#
-#volumes:
-#  letsencrypt_data:
-#    driver: local
-#  letsencrypt_data_alt:
-#    driver: local
+    image: "letsencrypt"
+    container_name: "letsencrypt0"
+    ports:
+      - "80:80"
+      - "443:443"

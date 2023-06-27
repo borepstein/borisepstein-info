@@ -1,20 +1,3 @@
-FROM ubuntu:22.04 AS wproxy
-WORKDIR /app/webproxy/
-#EXPOSE 80
-#EXPOSE 443
-ENV DEBIAN_FRONTEND noninteractive
-ENV DEBCONF_NONINTERACTIVE_SEEN true
-RUN apt-get update -y
-RUN apt-get update -y
-RUN apt-get install apt-utils -y
-RUN apt-get install tzdata -y
-RUN apt-get install debconf-utils -y
-RUN apt-get install nginx -y
-RUN apt-get install certbot -y
-COPY nginx/borisepstein.info /etc/nginx/sites-enabled/
-COPY nginx/default /etc/nginx/sites-enabled/
-CMD nginx -g 'daemon off;'; sleep 3600
-
 FROM centos:centos7 AS web
 WORKDIR /app/
 # add `/app/node_modules/.bin` to $PATH
@@ -42,6 +25,7 @@ RUN apt-get install tzdata -y
 RUN apt-get install debconf-utils -y
 RUN apt-get install nginx -y
 RUN apt-get install certbot -y
+RUN service nginx start
 COPY nginx/letsencrypt_start /usr/local/bin/
 RUN chmod 755 /usr/local/bin/letsencrypt_start
 CMD letsencrypt_start 3600
