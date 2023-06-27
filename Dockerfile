@@ -27,5 +27,7 @@ RUN apt-get install nginx -y
 RUN apt-get install certbot -y
 RUN service nginx start
 COPY nginx/letsencrypt_start /usr/local/bin/
+COPY nginx/borisepstein.info /etc/nginx/conf.d
+RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-enabled/borisepstein.info
 RUN chmod 755 /usr/local/bin/letsencrypt_start
 CMD letsencrypt_start 3600
