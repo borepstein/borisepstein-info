@@ -15,18 +15,18 @@ RUN npm install serve
 RUN npm run build
 CMD serve -s build
 
-FROM ubuntu:22.04 AS letsencrypt
-ENV DEBIAN_FRONTEND noninteractive
-ENV DEBCONF_NONINTERACTIVE_SEEN true
-RUN apt-get update -y
-RUN apt-get update -y
-RUN apt-get install apt-utils -y
-RUN apt-get install tzdata -y
-RUN apt-get install debconf-utils -y
-RUN apt-get install certbot -y
-COPY nginx/letsencrypt_start /usr/local/bin/
-RUN chmod 755 /usr/local/bin/letsencrypt_start
-CMD letsencrypt_start 3600
+# FROM ubuntu:22.04 AS letsencrypt
+# ENV DEBIAN_FRONTEND noninteractive
+# ENV DEBCONF_NONINTERACTIVE_SEEN true
+# RUN apt-get update -y
+# RUN apt-get update -y
+# RUN apt-get install apt-utils -y
+# RUN apt-get install tzdata -y
+# RUN apt-get install debconf-utils -y
+# RUN apt-get install certbot -y
+# COPY nginx/letsencrypt_start /usr/local/bin/
+# RUN chmod 755 /usr/local/bin/letsencrypt_start
+# CMD letsencrypt_start 3600
 
 FROM ubuntu:22.04 AS wproxy
 ENV DEBIAN_FRONTEND noninteractive
@@ -39,6 +39,23 @@ RUN apt-get install debconf-utils -y
 RUN apt-get install nginx -y
 RUN apt-get install certbot -y
 RUN service nginx start
+CMD nginx -g 'daemon off;'
+COPY nginx/letsencrypt_start /usr/local/bin/
+COPY nginx/default /etc/nginx/sites-available
+RUN chmod 755 /usr/local/bin/letsencrypt_start
+CMD letsencrypt_start 3600
+
+
+FROM ubuntu:22.04 AS wproxy_s
+ENV DEBIAN_FRONTEND noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN true
+RUN apt-get update -y
+RUN apt-get update -y
+RUN apt-get install apt-utils -y
+RUN apt-get install tzdata -y
+RUN apt-get install debconf-utils -y
+RUN apt-get install nginx -y
+RUN apt-get install certbot -y
 COPY nginx/borisepstein.info /etc/nginx/conf.d
 RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-available/borisepstein.info
 RUN ln -s /etc/nginx/conf.d/borisepstein.info /etc/nginx/sites-enabled/borisepstein.info

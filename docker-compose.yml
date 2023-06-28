@@ -8,15 +8,6 @@ services:
       target: "web"
     container_name: "web0"
 
-  letsencrypt:
-    build:
-      context: .
-      target: "letsencrypt"
-    container_name: "letsencrypt0"
-    volumes:
-      - letsencrypt_data:/etc/letsencrypt
-      - html_home:/var/www/html
-
   wproxy:
     build:
       context: .
@@ -24,13 +15,23 @@ services:
     container_name: "wproxy0"
     ports:
       - "80:80"
+    volumes:
+      - letsencrypt_data:/etc/letsencrypt
+    links:
+      - web
+
+  wproxy_s:
+    build:
+      context: .
+      target: "wproxy_s"
+    container_name: "wproxy_s0"
+    ports:
       - "443:443"
     volumes:
       - letsencrypt_data:/etc/letsencrypt
       - html_home:/var/www/html
     links:
       - web
-      - letsencrypt 
 
 volumes:
   letsencrypt_data:

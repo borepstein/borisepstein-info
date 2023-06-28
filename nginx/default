@@ -46,12 +46,12 @@ server {
 	server_name _;
 
 	location /.well-known/acme-challenge {
-		proxy_pass http://letsencrypt;
+		# proxy_pass http://letsencrypt;
+		default_type "text/plain";
+                # root /var/www/letsencrypt;
 	}
 
 	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
 		return 301 https://borisepstein.info/;
 	}
 
