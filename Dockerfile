@@ -38,10 +38,9 @@ RUN apt-get install tzdata -y
 RUN apt-get install debconf-utils -y
 RUN apt-get install nginx -y
 RUN apt-get install certbot -y
-RUN service nginx start
-CMD nginx -g 'daemon off;'
 COPY nginx/letsencrypt_start /usr/local/bin/
 COPY nginx/default /etc/nginx/sites-available
+RUN service nginx start
 RUN chmod 755 /usr/local/bin/letsencrypt_start
 CMD letsencrypt_start 3600
 
