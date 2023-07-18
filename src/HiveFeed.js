@@ -1,4 +1,6 @@
 import React from 'react';
+import {Row} from 'react-bootstrap';
+import 'marked';
 const fetch = require( 'node-fetch' );
 const hive_user = 'borepstein';
 const post_count = 5;
@@ -40,7 +42,7 @@ class HiveFeed extends React.Component {
 		let valid_cnt = 0;
 		let full_url;
 		let list_arr = [];
-
+                let image = '';
 		for (entry in this.state.data.result){
 			if (valid_cnt >= post_count) break;
 			if (this.state.data.result[entry].author !== hive_user) continue;
@@ -48,12 +50,20 @@ class HiveFeed extends React.Component {
 			full_url = hive_base_url + "/@" +
 						hive_user + "/" +
 						this.state.data.result[entry].permlink;
-
+                        image = this.state.data.result[entry].image ? this.state.data.result[entry].image : ''
 			list_arr.push(
-				<p>
-					<a href={full_url} target="_blank" rel="noopener noreferrer">{this.state.data.result[entry].title}</a>
-				</p>
+		<Row>
+		<a href={full_url} target="_blank" rel="noopener noreferrer">{this.state.data.result[entry].title}</a>
+		</Row>
 			);
+
+                        if (image) {
+                           list_arr.push(
+                           <Row>
+                           <img src="{{image}}"></img>
+                           </Row>
+                           );
+                       }
 		}
 
 		return( list_arr );

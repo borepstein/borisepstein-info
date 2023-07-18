@@ -10,7 +10,11 @@
     "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "typescript": "5.1.6",
+    "bootstrap": "5.3.0",
+    "react-bootstrap": "2.8.0",
+    "marked": "5.1.1"
   },
   "scripts": {
     "start": "PORT=80 HTTPS=false react-scripts start",
