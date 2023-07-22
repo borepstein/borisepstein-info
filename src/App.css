@@ -21,21 +21,34 @@
   color: #61dafb;
 }
 
-.container-flex {
-	background-color: var(--bs-grey);
+.container-fluid {
+	background-color: var(--bs-gray-500);
+	border: 2px solid;
+	border-color: var(--bs-blue);
 }
 
 .row {
+	background-color: var(--bs-gray-500);
 	display: flex;
 	column-count: 3;
 }
 
+.row-blog-entry {
+	border: 1px solid;
+	border-color: var(--bs-grey);
+}
+
 .row-top {
-    background-color: var(--bs-gray);
+    text-align: center;
+}
+
+.row-main {
+	border: 1px solid;
+        border-color: var(--bs-green);
 }
 
 .col {
-	background-color: var(--bs-gray);
+	background-color: var(--bs-grey-500);
 	float: left;
 	width: 25%;
 }

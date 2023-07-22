@@ -43,6 +43,8 @@ class HiveFeed extends React.Component {
 		let full_url;
 		let list_arr = [];
                 let image = '';
+                let metadata;
+
 		for (entry in this.state.data.result){
 			if (valid_cnt >= post_count) break;
 			if (this.state.data.result[entry].author !== hive_user) continue;
@@ -50,20 +52,21 @@ class HiveFeed extends React.Component {
 			full_url = hive_base_url + "/@" +
 						hive_user + "/" +
 						this.state.data.result[entry].permlink;
-                        image = this.state.data.result[entry].json_metadata.image ? this.state.data.result[entry].json_metadata.image[0] : '';
+                        image = "blog_blank.png";
+                        metadata = JSON.parse( this.state.data.result[entry].json_metadata );
+                        image = metadata.image ? metadata.image[0] : image;
+
 			list_arr.push(
-		<div class="row">
+                <div class="row row-blog-entry">
+                <div class="row">
 		<a href={full_url} target="_blank" rel="noopener noreferrer">{this.state.data.result[entry].title}</a>
-		</div>
+                </div>
+                <div class="row">
+                <img src={image}></img>
+                </div>
+                </div>
 			);
 
-                        if (image) {
-                           list_arr.push(
-                           <div class="row">
-                           <img src="{{image}}"></img>
-                           </div>
-                           );
-                       }
 		}
 
 		return( list_arr );
