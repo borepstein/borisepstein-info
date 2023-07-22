@@ -1,6 +1,6 @@
 import React from 'react';
-import {Row} from 'react-bootstrap';
-import 'marked';
+import 'bootstrap/dist/js/bootstrap.min.js';
+const marked = require('marked');
 const fetch = require( 'node-fetch' );
 const hive_user = 'borepstein';
 const post_count = 5;
@@ -50,18 +50,18 @@ class HiveFeed extends React.Component {
 			full_url = hive_base_url + "/@" +
 						hive_user + "/" +
 						this.state.data.result[entry].permlink;
-                        image = this.state.data.result[entry].image ? this.state.data.result[entry].image : ''
+                        image = this.state.data.result[entry].json_metadata.image ? this.state.data.result[entry].json_metadata.image[0] : '';
 			list_arr.push(
-		<Row>
+		<div class="row">
 		<a href={full_url} target="_blank" rel="noopener noreferrer">{this.state.data.result[entry].title}</a>
-		</Row>
+		</div>
 			);
 
                         if (image) {
                            list_arr.push(
-                           <Row>
+                           <div class="row">
                            <img src="{{image}}"></img>
-                           </Row>
+                           </div>
                            );
                        }
 		}

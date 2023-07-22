@@ -21,24 +21,21 @@
   color: #61dafb;
 }
 
+.container-flex {
+	background-color: var(--bs-grey);
+}
+
 .row {
 	display: flex;
 	column-count: 3;
 }
 
-.column1 {
+.row-top {
+    background-color: var(--bs-gray);
+}
+
+.col {
+	background-color: var(--bs-gray);
 	float: left;
-	width: 25%;
-}
-
-.column2 {
-	float: center;
-	width: 50%;
-        color: white;
-        background-color: #8a8a8a;
-}
-
-.column3 {
-	float: right;
 	width: 25%;
 }

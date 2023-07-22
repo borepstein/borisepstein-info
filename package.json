@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@popperjs/core": "2.11.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -13,7 +14,6 @@
     "react-scripts": "3.4.1",
     "typescript": "5.1.6",
     "bootstrap": "5.3.0",
-    "react-bootstrap": "2.8.0",
     "marked": "5.1.1"
   },
   "scripts": {

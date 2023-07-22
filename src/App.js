@@ -1,35 +1,34 @@
-import React from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
-import Clock from './Clock';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import React from 'react';
+import Clock from './Clock';
 import HiveFeed from './HiveFeed';
 import PersonalIntro from './PersonalIntro';
 import StaticExternalLinks from './StaticExternalLinks';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 function App() {
   return (
-    <Container className="container-fluid" >                    
-		<Row>
+    <div class="container-fluid container">
+		<div class="row-top row">
 			Zulu time: <Clock />
-		</Row>
-		<Row>
-			<Col>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col">
                         <PersonalIntro />
-			</Col>
+			</div>
 
-			<Col>
-				<p>Worthy of a look</p>
+			<div class="col">
+				<p>Recent blog entries</p>
 
 				<HiveFeed />
-			</Col>
-		        <Col>
+			</div>
+		        <div class="col">
                                 <StaticExternalLinks />
-			</Col>
-                </Row>
+			</div>
+                </div>
       
-    </Container>
+    </div>
   );
 }
 

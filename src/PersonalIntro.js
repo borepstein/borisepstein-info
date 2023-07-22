@@ -1,26 +1,25 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import './index.css';
 import './App.css';
-// import '';
 
 function PersonalIntro() {
 /* Personal info scetion 
 */
     return(
-        <Col>
-        <Row>
+        <div class="col">
+        <div class="row">
             <img src="https://i.postimg.cc/mDMYbbp5/me20110905.jpg" 
                           alt="Boris">
             </img>
-        </Row>
-        <Row>
+        </div>
+        <div class="row">
 	    <i>Boris</i>
-        </Row>
-        <Row>
+        </div>
+        <div class="row">
             <i>Boston area, 2011</i>
-        </Row>
-        </Col>
+        </div>
+        </div>
             );
 }
 
