@@ -62,7 +62,7 @@ class HiveFeed extends React.Component {
 		<a href={full_url} target="_blank" rel="noopener noreferrer">{this.state.data.result[entry].title}</a>
                 </div>
                 <div class="row">
-                <img src={image}></img>
+                <img src={image} class="img-thumbnail img-25"></img>
                 </div>
                 </div>
 			);

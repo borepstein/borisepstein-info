@@ -50,5 +50,8 @@
 .col {
 	background-color: var(--bs-grey-500);
 	float: left;
-	width: 25%;
+}
+
+.img-25 {
+	max-width: 25%;
 }

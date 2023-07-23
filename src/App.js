@@ -10,10 +10,10 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 function App() {
   return (
     <div class="container-fluid container">
-		<div class="row-top row">
+		<div class="row-top row justify-content-center">
 			Zulu time: <Clock />
 		</div>
-		<div class="row">
+		<div class="row row-main">
 			<div class="col-sm-4 col">
                         <PersonalIntro />
 			</div>
