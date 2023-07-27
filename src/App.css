@@ -7,7 +7,6 @@
 }
 
 .App-header {
-  background-color: grey;
   min-height: 5vh;
   display: flex;
   flex-direction: column;
@@ -28,14 +27,13 @@
 }
 
 .row {
-	background-color: var(--bs-gray-500);
-	display: flex;
-	column-count: 3;
+	background-color: var(--bs-white);
+	display: flex;;
 }
 
 .row-blog-entry {
 	border: 1px solid;
-	border-color: var(--bs-grey);
+	border-color: var(--bs-white);
 }
 
 .row-top {
@@ -45,10 +43,11 @@
 .row-main {
 	border: 1px solid;
         border-color: var(--bs-green);
+        background-color: var(--bs-white);
 }
 
 .col {
-	background-color: var(--bs-grey-500);
+	background-color: var(--bs-white);
 	max-width: 95%;
 	float: left;
 }

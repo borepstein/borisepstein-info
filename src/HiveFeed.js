@@ -62,7 +62,7 @@ class HiveFeed extends React.Component {
                 <div class="row">
                 <h4>{this.state.data.result[entry].title}</h4>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                 <img src={image} class="img-thumbnail img-25"></img>
                 </div>
                 </div>
