@@ -49,6 +49,7 @@
 
 .col {
 	background-color: var(--bs-grey-500);
+	max-width: 95%;
 	float: left;
 }
 

@@ -57,14 +57,16 @@ class HiveFeed extends React.Component {
                         image = metadata.image ? metadata.image[0] : image;
 
 			list_arr.push(
+                <a href={full_url} target="_bland">
                 <div class="row row-blog-entry">
                 <div class="row">
-		<a href={full_url} target="_blank" rel="noopener noreferrer">{this.state.data.result[entry].title}</a>
+                <h4>{this.state.data.result[entry].title}</h4>
                 </div>
                 <div class="row">
                 <img src={image} class="img-thumbnail img-25"></img>
                 </div>
                 </div>
+                </a>
 			);
 
 		}

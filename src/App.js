@@ -11,7 +11,7 @@ function App() {
   return (
     <div class="container-fluid container">
 		<div class="row-top row justify-content-center">
-			Zulu time: <Clock />
+			<h3>Zulu time: <Clock /></h3>
 		</div>
 		<div class="row row-main">
 			<div class="col-sm-4 col">
@@ -19,7 +19,7 @@ function App() {
 			</div>
 
 			<div class="col">
-				<p>Recent blog entries</p>
+				<h3>Recent blog entries</h3>
 
 				<HiveFeed />
 			</div>
