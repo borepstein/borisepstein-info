@@ -9,7 +9,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 function App() {
   return (
-    <div class="container-fluid container">
+    <div class="container-fluid">
 		<div class="row-top row justify-content-center">
 			<h3>Zulu time: <Clock /></h3>
 		</div>
